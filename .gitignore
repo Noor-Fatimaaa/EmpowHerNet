@@ -1,0 +1,29 @@
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+.next
+out
+coverage
+dist
+build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Docker
+**/.cache
+

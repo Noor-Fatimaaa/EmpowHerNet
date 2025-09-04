@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  mongo:
+    image: mongo:7
+    container_name: empowhernet-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+  api:
+    build:
+      context: ./services/api
+      dockerfile: Dockerfile
+    container_name: empowhernet-api
+    env_file:
+      - services/api/.env.example
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/empowhernet
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongo
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    container_name: empowhernet-web
+    env_file:
+      - apps/web/.env.example
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  mongo_data:
+

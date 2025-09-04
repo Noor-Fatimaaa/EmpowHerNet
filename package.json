@@ -1,0 +1,22 @@
+{
+  "name": "empowhernet",
+  "private": true,
+  "version": "0.1.0",
+  "description": "EmpowHerNet monorepo: web (Next.js), api (Express TS), shared packages",
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run -ws build",
+    "dev": "npm run -ws dev",
+    "lint": "npm run -ws lint",
+    "start": "npm run -ws start"
+  },
+  "engines": {
+    "node": ">=18.18.0",
+    "npm": ">=9.0.0"
+  }
+}
+
